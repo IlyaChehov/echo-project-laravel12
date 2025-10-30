@@ -108,4 +108,9 @@ class User extends Authenticatable implements JWTSubject
             'user_id'
         )->withTimestamps();
     }
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class, 'user_id');
+    }
 }
