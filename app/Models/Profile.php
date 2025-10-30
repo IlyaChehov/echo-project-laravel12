@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Profile extends Model
 {
     use SoftDeletes;
+    use HasMedia;
 
     public const GENDER_NOT_SPECIFIED = 0;
     public const GENDER_MALE = 1;
