@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use App\Models\Traits\HasComment;
+use App\Models\Traits\HasLike;
 use App\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
@@ -18,6 +19,7 @@ class Post extends Model
     use SoftDeletes;
     use HasComment;
     use HasMedia;
+    use HasLike;
 
     protected $table = 'posts';
     protected $fillable = [
