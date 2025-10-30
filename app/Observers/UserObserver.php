@@ -11,5 +11,7 @@ class UserObserver
     {
         $roleUserId = Role::where('title', '=', Role::ROLE_USER)->first()->id;
         $user->roles()->sync($roleUserId);
+
+        $user->profile()->create();
     }
 }
