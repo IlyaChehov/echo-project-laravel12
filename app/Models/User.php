@@ -6,6 +6,7 @@ namespace App\Models;
 use Database\Seeders\RoleSeeder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -38,6 +39,13 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'remember_token',
     ];
+
+    protected static function booted()
+    {
+        static::created(function (self $user) {
+            $user->profile()->create();
+        });
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -78,7 +86,12 @@ class User extends Authenticatable implements JWTSubject
             Role::class,
             'role_user',
             'user_id',
-            'role_id'
+            'role_id',
         )->withTimestamps();
+    }
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class, 'user_id');
     }
 }
