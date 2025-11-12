@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\HasComment;
+use App\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,6 +16,7 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
     use HasComment;
+    use HasMedia;
 
     protected $table = 'posts';
     protected $fillable = [
