@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\HasComment;
+use App\Models\Traits\HasLike;
 use App\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +18,7 @@ class Post extends Model
     use SoftDeletes;
     use HasComment;
     use HasMedia;
+    use HasLike;
 
     protected $table = 'posts';
     protected $fillable = [
