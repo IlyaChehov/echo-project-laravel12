@@ -11,9 +11,11 @@ class Comment extends Model
 {
     /** @use HasFactory<\Database\Factories\CommentFactory> */
     use HasFactory;
+
     use SoftDeletes;
 
     protected $table = 'comments';
+
     protected $fillable = [
         'commentable_type',
         'commentable_id',

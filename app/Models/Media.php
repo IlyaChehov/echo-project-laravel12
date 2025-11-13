@@ -11,9 +11,11 @@ class Media extends Model
     use SoftDeletes;
 
     public const TYPE_IMAGE = 'image';
+
     public const TYPE_AVATAR = 'avatar';
 
     protected $table = 'media';
+
     protected $fillable = [
         'mediaable_type',
         'mediaable_id',

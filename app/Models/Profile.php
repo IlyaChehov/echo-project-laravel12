@@ -11,10 +11,13 @@ class Profile extends Model
     use SoftDeletes;
 
     public const GENDER_NOT_SPECIFIED = 0;
+
     public const GENDER_MALE = 1;
+
     public const GENDER_FEMALE = 2;
 
     protected $table = 'profiles';
+
     protected $fillable = [
         'user_id',
         'first_name',

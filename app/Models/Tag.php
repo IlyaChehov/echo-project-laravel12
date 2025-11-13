@@ -11,9 +11,11 @@ class Tag extends Model
 {
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
+
     use SoftDeletes;
 
     protected $table = 'tags';
+
     protected $fillable = ['title'];
 
     public function posts(): BelongsToMany

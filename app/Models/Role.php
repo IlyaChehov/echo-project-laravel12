@@ -11,9 +11,11 @@ class Role extends Model
     use SoftDeletes;
 
     public const ROLE_ADMIN = 'admin';
+
     public const ROLE_MODERATOR = 'moderator';
 
     protected $table = 'roles';
+
     protected $fillable = ['title'];
 
     public function users(): BelongsToMany

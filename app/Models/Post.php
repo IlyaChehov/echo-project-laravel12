@@ -13,14 +13,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use HasComment;
+
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
-    use SoftDeletes;
-    use HasComment;
-    use HasMedia;
     use HasLike;
+    use HasMedia;
+    use SoftDeletes;
 
     protected $table = 'posts';
+
     protected $fillable = [
         'title',
         'body',

@@ -11,9 +11,11 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
+
     use SoftDeletes;
 
     protected $table = 'categories';
+
     protected $fillable = ['title'];
 
     public function posts(): HasMany
